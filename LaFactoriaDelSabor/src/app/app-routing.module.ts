@@ -9,6 +9,10 @@ const routes: Routes = [
     path: '', loadChildren: () =>
       import('./feature/home/home.module').then(mod => mod.HomeModule)
   },
+  {
+    path: '', loadChildren: () =>
+      import('./feature/login/login.module').then(mod => mod.LoginModule)
+  },
   // { path: '**', component: HomeMenuComponent},
 ];
 
