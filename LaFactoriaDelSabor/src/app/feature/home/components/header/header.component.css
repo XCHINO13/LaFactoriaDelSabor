@@ -1,0 +1,13 @@
+
+.header__titilo {
+    width: 800px;
+    margin: 0 auto;
+    /* background-color: rgb(255, 145, 0); */
+    text-align: center;
+}
+
+.header__titilo h1{
+    margin-top: 8rem;
+    font-size: 7rem;
+    color: white;
+}
