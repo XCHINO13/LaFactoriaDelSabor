@@ -6,18 +6,21 @@ import { HomeMenuComponent } from './containers/home-menu/home-menu.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HeaderComponent } from './components/header/header.component';
 import { CartaComponent } from './components/carta/carta.component';
+import { RouterModule, Routes } from "@angular/router";
+
 
 
 @NgModule({
   declarations: [
     HomeMenuComponent,
     HeaderComponent,
-    CartaComponent
+    CartaComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ]
 })
 export class HomeModule { }

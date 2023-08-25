@@ -4,7 +4,15 @@ import { HomeMenuComponent } from './containers/home-menu/home-menu.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeMenuComponent},
+  // { path: '', component: HomeMenuComponent},
+  // { path: 'login', component: },
+  {
+    path: "",
+    component: HomeMenuComponent,
+    children: [
+      // { path: "login", component:  },
+    ],
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,114 @@
+/* .login {
+    position: absolute;
+    top: 12rem;
+    left: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 30rem;
+    width: 50%;
+    border-radius: 10px;
+    opacity: 60%;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login {
+    display: flex;
+    /* height: 500px; */
+    /* width: 800px; */
+    height: 60%;
+    width: 60%;
+    margin: auto;
+    margin-top: 100px;
+    box-shadow: 15px 15px 20px black;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    right: 20%;
+    border-radius: 10px;
+
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 10px 0 0 10px;
+}
+
+.login_form h2 {
+    font-size: 3rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 40px;
+}
+
+.login__formInput {
+    padding: 12px;
+    width: 65%;
+    margin: 15px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 20px;
+}
+
+.login__formButton {
+    padding: 10px 30px;
+    width: 40%;
+    margin-top: 40px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}
+
+.login__formButton:hover {
+    cursor: pointer;
+    background-color: #963030;
+}
+
+.login__formForget {
+    text-decoration: none;
+    color: black;
+    margin-top: 20px;
+}
+
+.login__formForget:hover {
+    color: #963030;
+}
+
+.login_side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 0 10px 10px 0 ;
+}
+
+.login_side img {
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+}
+
+@media (max-width: 880px) {
+    .login_side {
+        visibility: hidden;
+        width: 0;
+    }
+    .login_form {
+        width: 100%;
+        border-radius: 10px;
+    }
+}
