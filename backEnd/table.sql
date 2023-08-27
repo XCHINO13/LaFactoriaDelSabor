@@ -11,6 +11,10 @@ create table user(
 );
 
 
+<<<<<<< HEAD
+insert into user(name,contactnumber,email,password,status,role) values('admin','44444444','admin@gmail.com','admin','true','admin');
+=======
 insert into user(name,contactnumber,email,password,status,role) values('admin','44444444','admin@gmail.com','admin','true','admin');
 
 ();
+>>>>>>> lfds-3/quijano
