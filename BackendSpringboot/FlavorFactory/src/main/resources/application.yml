@@ -1,0 +1,8 @@
+server:
+  port: 1020
+
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/flavorfactory
+        username: postgres
+
