@@ -19,7 +19,8 @@ export class NavbarComponent implements OnInit {
 
   redireccionLogin() {
 
-    console.log(this.loginServices.login());
+    this.loginServices.login();
+    console.log('hla');
 
     // this.router.navigate(['login']);
     
