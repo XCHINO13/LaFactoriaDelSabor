@@ -19,8 +19,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean validationParamsLogin(String email, String password) {
-        Optional<UserDto> objUser = userRepository.consultUser(email, password);
+    public boolean validationParamsLogin(String correo, String contrasena) {
+        System.out.println("UWU");
+        Optional<UserDto> objUser = userRepository.consultUser(correo, contrasena);
         log.info("[{}], Esta es la informacion de la base de datos", objUser);
 
         if (!objUser.isPresent()){

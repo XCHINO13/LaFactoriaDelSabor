@@ -27,15 +27,15 @@ public class UserRepository {
         return template.query(sql, new BeanPropertyRowMapper<>(UserDto.class));
     }
 
-    public Optional<UserDto> consultUser(String email, String password) {
+    public Optional<UserDto> consultUser(String correo, String contrasena) {
         try {
             NamedParameterJdbcTemplate parameterJdbcTemplate = new NamedParameterJdbcTemplate(template.getDataSource());
 
-            String sql = "SELECT * FROM usuarios WHERE email = :email and password = :password ";
+            String sql = "SELECT * FROM usuarios WHERE correo = :correo and contrasena = :contrasena ";
 
             MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
-            mapSqlParameterSource.addValue("email", email);
-            mapSqlParameterSource.addValue("password", password);
+            mapSqlParameterSource.addValue("correo", correo);
+            mapSqlParameterSource.addValue("contrasena", contrasena);
 
             List<UserDto> userDto = parameterJdbcTemplate.query(sql, mapSqlParameterSource, new BeanPropertyRowMapper<>(UserDto.class));
 

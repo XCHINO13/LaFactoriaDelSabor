@@ -3,6 +3,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://localhost:5432/flavorfactory
+        url: jdbc:postgresql://localhost:5432/lafactoriadelsabor
         username: postgres
+        password: postgres
 

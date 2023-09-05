@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,18 +9,19 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginService {
 
-  public datos = {
-    "email":"admin@gmail.com",
-    "password":"admin"
+  public params = {
+    correo:"admin@asd.com",
+    contrasena:"admin"
 }
 
   constructor(private http: HttpClient) { }
 
-  public respuesta = { headers: new HttpHeaders().set('Content-Type', 'application/json').set('Access-Control-Allow-Origin', '*')}
+  public headers = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
 
-
-  public login() {
-    return this.http.post("http://localhost:7000/user/login", this.datos, this.respuesta);
+  public login(): Observable<any> {
+    return this.http.post<any>(`${environment.url}user/login`, this.params, this.headers);
   }
   
 }
