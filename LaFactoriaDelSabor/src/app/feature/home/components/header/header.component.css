@@ -1,6 +1,6 @@
 
 .header__titilo {
-    width: 800px;
+    width: 80%;
     margin: 0 auto;
     /* background-color: rgb(255, 145, 0); */
     text-align: center;
@@ -11,5 +11,16 @@
     margin-top: 8rem;
     font-size: 7rem;
     color: white;
+}
+
+@media (max-width: 880px) {
+    .header__titilo {
+        width: 50%;
+    }
+
+    .header__titilo h1 {
+        font-size: 3rem;
+    }
+
 }
 

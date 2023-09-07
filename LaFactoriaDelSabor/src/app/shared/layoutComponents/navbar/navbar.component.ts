@@ -6,30 +6,34 @@ import { SubSink } from 'node_modules/subsink';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private router: Router, private loginServices: LoginService) { }
+  constructor(private router: Router, private loginServices: LoginService) {}
 
   private subs = new SubSink();
-
+  public menuDesplegable = true;
   ngOnInit(): void {
-    
+    this.calcScreen();
+  }
+
+  calcScreen() {
+    let screenWidth = window.screen.width;
+    console.log(screenWidth);
+    if (screenWidth <= 691) {
+      this.menuDesplegable = false;
+    }
   }
 
   redireccionLogin() {
+    // this.subs.add(this.loginServices.login().subscribe(resp => {
+    //   console.log('login');
+    //   console.log(resp);
+    // },
+    // (error) => {
+    //   console.error('Error en la solicitud:', error);
+    // }))
 
-    this.subs.add(this.loginServices.login().subscribe(resp => {
-      console.log('login');
-      console.log(resp);
-    },
-    (error) => {
-      console.error('Error en la solicitud:', error);
-    }))
-
-    // this.router.navigate(['login']);
-    
+    this.router.navigate(['login']);
   }
-
 }

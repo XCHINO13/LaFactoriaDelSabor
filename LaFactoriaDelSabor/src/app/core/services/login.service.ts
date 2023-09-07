@@ -20,8 +20,8 @@ export class LoginService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  public login(): Observable<any> {
-    return this.http.post<any>(`${environment.url}user/login`, this.params, this.headers);
-  }
+  // public login(): Observable<any> {
+  //   return this.http.post<any>(`${environment.url}user/login`, this.params, this.headers);
+  // }
   
 }
