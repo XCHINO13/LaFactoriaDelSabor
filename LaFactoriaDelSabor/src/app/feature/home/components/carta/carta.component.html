@@ -1,5 +1,18 @@
 <div class="carta">
 
-    <app-header></app-header>
+    <!-- <app-header></app-header> -->
+    <div class="carta__card" *ngFor="let plato of platos">
+
+        <img [src]="plato.img" alt="">
+
+        <div class="carta__cardDescription">
+            <h1>{{plato.nombre}}</h1>
+            <div class="carta__cardDescriptionPrice">
+                <div><p>{{plato.descripcion}}</p></div>
+                <div class="Price"><h2>{{plato.precio}}</h2></div>
+            </div>
+        </div>
+
+    </div>
 
 </div>

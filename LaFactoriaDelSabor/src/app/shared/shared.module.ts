@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
 import { NavbarComponent } from './layoutComponents/navbar/navbar.component';
 import { MatMenuModule} from '@angular/material/menu';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { MatMenuModule} from '@angular/material/menu';
   imports: [
     CommonModule,
     SharedRoutingModule,
-    MatMenuModule
+    MatMenuModule,
+    TranslateModule
   ],
   exports: [
     NavbarComponent

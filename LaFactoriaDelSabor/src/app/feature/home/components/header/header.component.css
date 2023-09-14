@@ -1,17 +1,21 @@
 
 .header__titilo {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     /* background-color: rgb(255, 145, 0); */
     text-align: center;
     height: 100vh;
+    margin-top: 8rem;
+
 }
 
 .header__titilo h1{
-    margin-top: 8rem;
     font-size: 7rem;
     color: white;
+    padding-bottom: 5rem;
 }
+
+
 
 @media (max-width: 880px) {
     .header__titilo {
@@ -20,6 +24,7 @@
 
     .header__titilo h1 {
         font-size: 3rem;
+        padding-bottom: 1rem;
     }
 
 }

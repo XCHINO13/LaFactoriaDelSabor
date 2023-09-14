@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HeaderComponent } from './components/header/header.component';
 import { CartaComponent } from './components/carta/carta.component';
 import { RouterModule, Routes } from "@angular/router";
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -20,7 +21,8 @@ import { RouterModule, Routes } from "@angular/router";
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    TranslateModule
   ]
 })
 export class HomeModule { }

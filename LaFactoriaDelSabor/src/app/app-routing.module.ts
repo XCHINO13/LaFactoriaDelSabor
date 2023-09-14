@@ -10,6 +10,10 @@ const routes: Routes = [
       import('./feature/home/home.module').then(mod => mod.HomeModule)
   },
   {
+    path: 'home', loadChildren: () =>
+      import('./feature/home/home.module').then(mod => mod.HomeModule)
+  },
+  {
     path: 'login', loadChildren: () =>
       import('./feature/login/login.module').then(mod => mod.LoginModule)
   },

@@ -2,13 +2,38 @@
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../../../assets/img/fondoComida.jpg") no-repeat;
     background-size: cover;
     /* filter: brightness(50%); */
+    /* height: 100vh; */
     height: 100vh;
+    min-height: 60rem;
     position: relative;
     overflow: hidden;
 }
 
 .containerBody {
-    height: 100%;
+    height: auto;
     background-color: #414141;
     width: 100%;
 }
+
+.header__idiom {
+    /* background-color: antiquewhite; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding-top: 2rem;
+}
+
+.header__idiom span select {
+    height: 2rem;
+    width: 5rem;
+    color: black;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    text-align: center;
+    border-radius: 5rem;
+    background-color: rgb(255, 208, 0);
+}
+

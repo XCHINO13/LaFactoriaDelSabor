@@ -1,13 +1,23 @@
 <div class="containerHome">
+  <app-navbar></app-navbar>
 
-    <app-navbar></app-navbar>
+  <div class="header__idiom">
+    <span>
+      <select #selectedLang (change)="switchLang(selectedLang.value)">
+        <option
+          *ngFor="let language of translate.getLangs()"
+          [value]="language"
+          [selected]="language === translate.currentLang"
+        >
+          {{ language }}
+        </option>
+      </select>
+    </span>
+  </div>
 
-    <app-header></app-header>
-    
+  <app-header></app-header>
 </div>
 
 <div class="containerBody">
-
-    <router-outlet></router-outlet>
-
+  <router-outlet></router-outlet>
 </div>
