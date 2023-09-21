@@ -16,18 +16,18 @@ export class NavbarComponent implements OnInit {
 
   private subs = new SubSink();
   public menuDesplegable = true;
-  // private prevScrollPos = 0;
   public navbar = false;
  
   @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event): void {
-    console.log(event);
-    const currentScrollPos = window.pageYOffset;
-
-    if (currentScrollPos === 0) {
+  onScroll(): void {
+    if (window.scrollY > 60) {
+      this.navbar = true;
+      console.log(this.navbar);
+    } else {
       this.navbar = false;
     }
   }
+
   
 
   ngOnInit(): void {
@@ -53,7 +53,8 @@ export class NavbarComponent implements OnInit {
     //   console.error('Error en la solicitud:', error);
     // }))
 
-    this.router.navigate(['login']);
+    // this.router.navigate(['login']);
+    this.router.navigate(['reservas']);
   }
 
   redireccionHome() {

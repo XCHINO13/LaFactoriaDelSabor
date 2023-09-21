@@ -17,6 +17,10 @@ const routes: Routes = [
     path: 'login', loadChildren: () =>
       import('./feature/login/login.module').then(mod => mod.LoginModule)
   },
+  {
+    path: 'reservas', loadChildren: () =>
+      import('./feature/reservas/reservas.module').then(mod => mod.ReservasModule)
+  },
   // { path: '**', component: HomeMenuComponent},
 ];
 

@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule, TranslatePipe  } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,10 +20,9 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    // COM pwa
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the app is stable
-      // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
     BrowserAnimationsModule,
@@ -35,7 +33,8 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
+    // 
   ],
   providers: [],
   bootstrap: [AppComponent]
