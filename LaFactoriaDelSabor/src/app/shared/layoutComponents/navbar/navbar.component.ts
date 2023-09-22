@@ -17,7 +17,8 @@ export class NavbarComponent implements OnInit {
   private subs = new SubSink();
   public menuDesplegable = true;
   public navbar = false;
- 
+  public botonAccion!: string;
+
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
     if (window.scrollY > 60) {
@@ -32,6 +33,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.calcScreen();
+    this.botonAccion = 'login';
+    console.log(this.botonAccion);
   }
 
   calcScreen() {
@@ -45,16 +48,15 @@ export class NavbarComponent implements OnInit {
 
 
   redireccionLogin() {
-    // this.subs.add(this.loginServices.login().subscribe(resp => {
-    //   console.log('login');
-    //   console.log(resp);
-    // },
-    // (error) => {
-    //   console.error('Error en la solicitud:', error);
-    // }))
 
-    // this.router.navigate(['login']);
-    this.router.navigate(['reservas']);
+    if(this.botonAccion == 'login'){
+      this.botonAccion = 'Register';
+      this.router.navigate(['register']);
+    } else if(this.botonAccion == 'Register'){
+      this.botonAccion = 'Register';
+      this.router.navigate(['login']);
+    }
+
   }
 
   redireccionHome() {

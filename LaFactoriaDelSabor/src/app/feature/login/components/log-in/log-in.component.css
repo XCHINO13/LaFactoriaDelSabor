@@ -42,6 +42,7 @@
     align-items: center;
     background-color: whitesmoke;
     border-radius: 10px 0 0 10px;
+    justify-content: center;
 }
 
 .login_form h2 {
@@ -110,5 +111,15 @@
     .login_form {
         width: 100%;
         border-radius: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .login__formButton {
+        width: 50%;
+    }
+
+    .login {
+        height: 27rem;
     }
 }

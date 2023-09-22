@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { IUsuario } from '../data/IUsuario';
 
 
 @Injectable({
@@ -20,8 +21,8 @@ export class LoginService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  // public login(): Observable<any> {
-  //   return this.http.post<any>(`${environment.url}user/login`, this.params, this.headers);
-  // }
+  public login(a: IUsuario): Observable<any> {
+    return this.http.post<IUsuario>(`${environment.url}user/login`, a, this.headers);
+  }
   
 }
