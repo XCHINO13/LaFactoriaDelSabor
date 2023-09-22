@@ -8,9 +8,9 @@ const routes: Routes = [
   {
     path: "",
     component: LoginComponent,
-    children: [
-      { path: "login", component: LogInComponent },
-    ],
+    // children: [
+    //   { path: "login", component: LogInComponent },
+    // ],
   },
   // { path: 'login', component: LoginComponent }
 ];

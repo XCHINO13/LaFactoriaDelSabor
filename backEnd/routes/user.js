@@ -1,3 +1,5 @@
+const { response } = require('./helpers/dataResponse');
+
 const express = require('express');
 const connection = require('../connection');
 const router = express.Router();
@@ -34,41 +36,34 @@ router.post('/signup', (req, res) => {
 
 })
 
-router.post('/login', (req,res) => {
-    const user = req.body;
-    console.log('uwuwuwuwwuwu')
-    query = "select email,password,role,status from user where email=?";
-    connection.query(query,[user.email],(err, results) => {
-        if (!err) {
-            if (results.length <= 0 || results[0].password !=user.password){
-                return res.status(401).json({
-                    message: "Incorrecto usuario o contraseña"
-                });
-            } else if (results[0].status === 'false'){
-                return res.status(401).json({
-                    message: "Ingreso exitoso"
-                });
-            } else if (results[0].password == user.password){
-                const response = {
-                    email: results[0].email,
-                    role: results[0].role
-                }
-                const accessToken = jwt.sign(response, process.env.ACCESS_TOKEN, {
-                    expiresIn: '8h'
-                })
-                console.log(accessToken);
-                res.status(200).json({
-                    token: accessToken
-                });
-            } else {
-                return res.status(400).json({
-                    message: "something went wrong.please try again later"
-                });
-            }
+router.post('/login', async (req,res) => {
+    try{
+        const user = req.body;
+        console.log('user');
+        console.log(user);
+        const consulta = "select * from usuarios where correo = $1";
+        const data = await connection.query(consulta, [user.correo]) 
+        //console.log("Result -> ", data.rows);
+
+        if(data.rows.length > 0 && data.rows[0].contrasena === user.contrasena){
+            // return res.status(200).json(data.rows);
+            response(res, {data: data, msg: "Se inicio Sesion correctamente"});
         } else {
-            return restart.status(500).json(err);
+            response(res, { msg: "Error al  consultar usuario", statusCode:404});
+            // return res.status(401).json({ error: 'Credenciales inválidas' });
+            // return res.status(500).json('email o contraseña incorrectos');
+            // throw Error("Email o contraseña incorrecta")
+            // console.log("Error allogear usuario =>", err);
+            // return res.status(404).json({
+            //     error: "Email o contraseña incorrecta"
+            // });
         }
-    })
+
+    }
+    catch (error) {
+        console.log("Error -> ", error.message);
+        return res.status(500).json(error.message);
+    }
 })
 
 //minuto 13:21 Video3

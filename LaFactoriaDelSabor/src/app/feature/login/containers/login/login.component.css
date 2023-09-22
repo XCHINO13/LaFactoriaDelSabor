@@ -5,6 +5,6 @@
     height: 100vh;
     position: absolute;
     top: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: -10;
 }

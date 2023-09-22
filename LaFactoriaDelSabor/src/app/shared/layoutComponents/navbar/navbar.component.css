@@ -1,48 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 .navbar {
-    height: 60px;
-    width: 100%;
-    background-color: rgb(122, 45, 25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
+  height: 60px;
+  width: 100%;
+  background-color: rgb(122, 45, 25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.nav {
+  backdrop-filter: blur(20px);
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .navbarMenu {
-    height: 70px;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 999;
-    /* backdrop-filter: blur(20px); */
+  height: 70px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
 }
 
 .navbarMenu__logo {
-    height: 60px;
-    width: 150px;
-    margin-left: 2rem;
-    /* background-color: rgb(0, 0, 0); */
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
+  height: 60px;
+  width: 150px;
+  margin-left: 2rem;
+  /* background-color: rgb(0, 0, 0); */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
 }
 
 .navbarMenu__logo img {
-    height: 60px;
-    width: 60px;
-    border-radius: 45px;
-
+  height: 60px;
+  width: 60px;
+  border-radius: 45px;
 }
 
 .navbarMenu__items {
@@ -50,37 +60,37 @@
   /* background-color: aquamarine; */
 }
 
-.navbarMenu__items ul{
-    display: flex;
-    column-gap: 6rem;
+.navbarMenu__items ul {
+  display: flex;
+  column-gap: 6rem;
 }
 
-.navbarMenu__items ul li{
-    list-style: none;
-    font-size: 1.5rem;
-    font-weight: bolder;
+.navbarMenu__items ul li {
+  list-style: none;
+  font-size: 1.5rem;
+  font-weight: bolder;
 }
 
-.navbarMenu__items ul li a{
-    color: black;
-    text-decoration: none;
+.navbarMenu__items ul li a {
+  color: black;
+  text-decoration: none;
 }
 
 .navbarMenu__btn {
   /* background-color: antiquewhite; */
 }
 
-.navbarMenu__btn button{
-    height: 2.5rem;
-    width: 10rem;
-    margin-right: 2rem;
-    border: none;
-    color: black;
-    font-weight: bold;
-    font-size: 1rem;
-    border-radius: 45px;
-    background-color: rgb(255, 208, 0);
-    cursor: pointer;
+.navbarMenu__btn button {
+  height: 2.5rem;
+  width: 10rem;
+  margin-right: 2rem;
+  border: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 45px;
+  background-color: rgb(255, 208, 0);
+  cursor: pointer;
 }
 
 .main-header {
@@ -97,7 +107,6 @@
   font-size: 32px;
   text-decoration: none;
 }
-
 
 /* COM hamburguesa */
 
@@ -155,7 +164,6 @@
   }
 }
 
-
 .button-menu.close span {
   opacity: 1;
   transform: rotate(45deg) translate(0px, 0px);
@@ -171,51 +179,45 @@
 }
 
 @media (max-width: 880px) {
- .navbarMenu__items ul li{
-    font-size: 1.2  rem;
- }
-
- .navbarMenu__items ul{
-    column-gap: 3rem;
-}
-
-.navbarMenu__btn button{
-    width: 7rem;
-}
-
-.navbar{
-  visibility: hidden;
-}
-
-.navbarMenu {
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0;
-  width: 100%;
-}
-
-
-@media (max-width: 691px) {
-
-  .navbarMenu__items {
-    /* visibility: hidden; */
- 
+  .navbarMenu__items ul li {
+    font-size: 1.2 rem;
   }
 
   .navbarMenu__items ul {
-    /* visibility: hidden; */
-    display: block;
+    column-gap: 3rem;
   }
 
-  .navbarMenu__logo {
-    width: auto;
+  .navbarMenu__btn button {
+    width: 7rem;
   }
 
-}
+  .navbar {
+    visibility: hidden;
+  }
 
+  .navbarMenu {
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0;
+    width: 100%;
+  }
 
+  @media (max-width: 691px) {
+    .navbarMenu__items {
+      /* visibility: hidden; */
+    }
 
-/* MI CELULAR */
-/* @media (max-width: 691px) {
+    .navbarMenu__items ul {
+      /* visibility: hidden; */
+      display: block;
+    }
+
+    .navbarMenu__logo {
+      width: auto;
+    }
+  }
+
+  /* MI CELULAR */
+  /* @media (max-width: 691px) {
 
   .navbarMenu {
     background-color: #234567;

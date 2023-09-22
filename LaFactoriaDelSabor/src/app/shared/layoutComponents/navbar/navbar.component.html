@@ -1,7 +1,7 @@
-<div class="navbar">
+<!-- <div class="navbar">
     <h2>Download our app</h2>
-</div>
-<div class="navbarMenu" [ngClass]="{'nav': navbar}">
+</div> -->
+<div class="" [ngClass]="navbar === true ? 'nav' : 'navbarMenu'">
     
     <div class="navbarMenu__logo">
         <img src="./assets/img/fondoComida.jpg" alt="">
@@ -24,10 +24,8 @@
         </ul>
     </div>
 
-
-
     <div class="navbarMenu__btn">
-        <button type="button" class="" (click)="redireccionLogin()">Sing up</button>
+        <button type="button" class="" (click)="redireccionLogin()">{{botonAccion}}</button>
     </div>
 
 </div>

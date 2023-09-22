@@ -4,7 +4,7 @@ import { HomeMenuComponent } from './feature/home/containers/home-menu/home-menu
 import { HomeModule } from './feature/home/home.module';
 
 const routes: Routes = [
-  // { path: '', component: HomeMenuComponent},
+  // { path: '', redirectTo: 'home'},
   {
     path: '', loadChildren: () =>
       import('./feature/home/home.module').then(mod => mod.HomeModule)
@@ -17,7 +17,11 @@ const routes: Routes = [
     path: 'login', loadChildren: () =>
       import('./feature/login/login.module').then(mod => mod.LoginModule)
   },
-  // { path: '**', component: HomeMenuComponent},
+  {
+    path: 'reservas', loadChildren: () =>
+      import('./feature/reservas/reservas.module').then(mod => mod.ReservasModule)
+  },
+  { path: '**', component: HomeMenuComponent},
 ];
 
 @NgModule({
