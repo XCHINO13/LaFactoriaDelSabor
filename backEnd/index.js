@@ -8,4 +8,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use('/user',userRoute);
 
+const htmlResponse = `<h1>Hola backend</h1>`
+
 module.exports = app;
