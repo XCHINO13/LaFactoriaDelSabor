@@ -1,0 +1,107 @@
+.container__module {
+    /* background-color: antiquewhite; */
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+}
+
+/* COM Componente de header */
+.reservas__header {
+    background-color: brown;
+    height: 30px;
+    width: 100%;
+    border-radius: 45px;
+    margin-bottom: 2rem;
+}
+
+.card__module {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.5rem;
+    box-shadow:  5px 5px 10px gray;
+}
+
+.card__from {
+    width: 100%;
+}
+
+.container__form {
+    /* background-color: rgba(71, 178, 255, 0.401); */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-row-gap: 1rem;
+    grid-column-gap: 2rem;
+    margin: 2rem;
+    width: auto;
+}
+
+.labelInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.labelInput input {
+    height: 2rem;
+    border: none;
+    outline: none;
+    padding: 0.1rem 1rem;
+    background-color: rgba(165, 42, 42, 0.23);
+    box-shadow: 5px 5px 5px gray;
+    border-radius: 45px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.labelInput label {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.form__botton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.botton {
+    height: 2.5rem;
+    width: 12rem;
+    border: none;
+    margin: 0 0.5rem;
+    border-radius: 45px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn_limpiar {
+    color: brown;
+    background-color: white;
+    border: 3px solid brown;
+}
+
+.btn_guardar {
+    color: white;
+    background-color: brown;
+}
+
+@media screen and (max-width: 768px) {
+    .container__form {
+        grid-template-columns: repeat(2, minmax(10px, 1fr));
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .container__form {
+        grid-template-columns: 1fr;
+        margin: auto;
+    }
+}

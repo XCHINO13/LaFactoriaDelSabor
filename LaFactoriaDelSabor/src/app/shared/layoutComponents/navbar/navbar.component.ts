@@ -51,10 +51,10 @@ export class NavbarComponent implements OnInit {
 
     if(this.botonAccion == 'login'){
       this.botonAccion = 'Register';
-      this.router.navigate(['register']);
-    } else if(this.botonAccion == 'Register'){
-      this.botonAccion = 'Register';
       this.router.navigate(['login']);
+    } else if(this.botonAccion == 'Register'){
+      this.botonAccion = 'login';
+      this.router.navigate(['Register']);
     }
 
   }
