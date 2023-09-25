@@ -1,17 +1,7 @@
-const express = require('express');
-var cors = require('cors');
-const connection = require('./connection');
-const app = express();
-const userRouteUser = require('./routes/user');
-const userRouteBooking = require('./routes/booking');
+require('dotenv').config();
+const http = require('http');
+const app = require('./index');
 
-app.use(cors());
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
-
-app.use('/user',userRouteUser);
-app.use('/reservas',userRouteBooking);
-
-const htmlResponse = `<h1>Hola backend</h1>`
-
-module.exports = app;
+const server = http.createServer(app);
+server.listen(process.env.PORT);
+console.log('escuchando en el puerto', process.env.PORT);
