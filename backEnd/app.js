@@ -1,17 +1,20 @@
 const express = require('express');
-var cors = require('cors');
-const connection = require('./connection');
+const cors = require('cors');
+const morgan = require('morgan');
+
 const app = express();
-const userRouteUser = require('./routes/user');
-const userRouteBooking = require('./routes/booking');
 
-app.use(cors());
-app.use(express.urlencoded({extended: true}));
+app.use(morgan('dev'));
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(cors());
 
-app.use('/user',userRouteUser);
-app.use('/reservas',userRouteBooking);
+app.use('/user',require('./routes/user'));
+app.use('/reservas',require('./routes/booking'));
 
 const htmlResponse = `<h1>Hola backend</h1>`
+app.use('/', (req, res) => {
+    res.json({msg:htmlResponse});
+})
 
 module.exports = app;
