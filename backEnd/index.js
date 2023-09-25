@@ -12,4 +12,6 @@ app.use(express.json());
 app.use('/user',userRouteUser);
 // app.use('/reservas',userRouteBooking);
 
+const htmlResponse = `<h1>Hola backend</h1>`
+
 module.exports = app;
