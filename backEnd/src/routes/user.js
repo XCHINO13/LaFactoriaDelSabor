@@ -1,9 +1,9 @@
-const { response } = require("./helpers/dataResponse");
-const { validarCampos } = require("./helpers/dataValidations");
-const { validarCamposReserva } = require("./helpers/dataValidations");
+const { response } = require("../helpers/dataResponse");
+const { validarCampos } = require("../helpers/dataValidations");
+const { validarCamposReserva } = require("../helpers/dataValidations");
 
 const express = require("express");
-const connection = require("../connection");
+const connection = require("../../connection");
 const router = express.Router();
 
 const jwt = require("jsonwebtoken");
@@ -16,9 +16,6 @@ router.post("/login", async (req, res) => {
     console.log(user);
     const consulta = "select * from usuarios where correo = $1";
     const data = await connection.query(consulta, [user.correo]);
-
-    console.log(data.rows);
-
     if (data.rows.length > 0 && data.rows[0].contrasena === user.contrasena) {
       response(res, { data: data, msg: "Se inicio Sesion correctamente" });
     } else {

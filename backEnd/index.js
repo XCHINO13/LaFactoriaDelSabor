@@ -1,7 +1,5 @@
 const dotenv = require('dotenv').config();
-//var env = require('node-env-file'); // .env file
-//env(__dirname + '../.env');
-const app = require('./app.js');
+const app = require('./src/app.js');
 
 app.set('port', process.env.PORT || 4000);
 
