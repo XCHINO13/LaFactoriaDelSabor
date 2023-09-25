@@ -7,11 +7,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ReservasHomeComponent } from './containers/reservas-home/reservas-home.component';
 import { FiltroReservaComponent } from './components/filtro-reserva/filtro-reserva.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TablaReservasComponent } from './components/tabla-reservas/tabla-reservas.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     ReservasHomeComponent,
-    FiltroReservaComponent
+    FiltroReservaComponent,
+    TablaReservasComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     TranslateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ]
 })
 export class ReservasModule { }

@@ -1,4 +1,7 @@
 <div class="login">
+
+    <pre>{{formulario.getRawValue() | json}}</pre>
+
     <form class="login_form" [formGroup]="formulario" (ngSubmit)="loginUser()">
 
         <h2>LOGIN</h2>

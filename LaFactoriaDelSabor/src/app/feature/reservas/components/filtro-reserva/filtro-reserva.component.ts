@@ -28,8 +28,9 @@ export class FiltroReservaComponent implements OnInit {
         nombre: ['jhonier martinez'],
         telefono: ['1851123'],
         fechaReserva: ['13-05-2002'],
+        cantPersonas: [2],
         horaReserva: ['1:30'],
-        lugarReserva: ['barra'],
+        lugarReserva: ['barra']
       });
      }
 
@@ -56,7 +57,7 @@ export class FiltroReservaComponent implements OnInit {
   crearReserva() {
 
     this.IReserva = {
-      id_usuario: 1, 
+      id_usuario: 1,
       nombre: this.fieldNombre?.value,
       telefono: this.fieldTelefono?.value,
       fechaReserva: this.fieldFechaReserva?.value,
@@ -67,6 +68,7 @@ export class FiltroReservaComponent implements OnInit {
     this.subs.add(this.reservaServices.crearReserva(this.IReserva).subscribe( resp => {
       console.log('crear reserva');
       console.log(resp);
+      console.log(this.IReserva);
       if(resp.status === 401) {
         this.sweetAlert.alertFracaso(resp.message)
       }

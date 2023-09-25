@@ -1,0 +1,29 @@
+<div class="card__module">
+    <table mat-table [dataSource]="dataSource" class="TablaReservas" matSort style=" width: 100%; font-weight: bold; font-size: 1rem;">
+
+        <ng-container matColumnDef="nombre">
+            <th *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.id_usuario}} </td>
+        </ng-container>
+        <ng-container matColumnDef="fecha_reserva">
+            <th *matHeaderCellDef> Fecha reserva </th>
+            <td mat-cell *matCellDef="let element"> {{element.fecha_reserva}} </td>
+        </ng-container>
+        <ng-container matColumnDef="hora_reserva">
+            <th *matHeaderCellDef> Hora reserva </th>
+            <td mat-cell *matCellDef="let element"> {{element.hora_reserva}} </td>
+        </ng-container>
+        <ng-container matColumnDef="pedido">
+            <th *matHeaderCellDef> Pedido </th>
+            <td mat-cell *matCellDef="let element"> {{element.pedido == null ? 'NO': element.pedido}} </td>
+        </ng-container>
+        <ng-container matColumnDef="estado">
+            <th *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+

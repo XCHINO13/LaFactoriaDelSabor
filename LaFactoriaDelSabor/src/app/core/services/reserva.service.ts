@@ -15,6 +15,11 @@ export class ReservaService {
   };
 
   public crearReserva(reserva: any): Observable<any> {
-    return this.http.post<any>(`${environment.url}user/registrarReserva`, reserva, this.headers);
+    return this.http.post<any>(`${environment.url}reservas/registrarReserva`, reserva, this.headers);
+  }
+
+  public consultarReserva(idUsuario: number): Observable<any> {
+    console.log(idUsuario);
+    return this.http.post<number>(`${environment.url}reservas/consultarReservas/${idUsuario}`, this.headers);
   }
 }

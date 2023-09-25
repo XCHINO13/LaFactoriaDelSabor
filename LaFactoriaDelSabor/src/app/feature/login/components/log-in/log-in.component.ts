@@ -50,9 +50,10 @@ export class LogInComponent implements OnInit {
 
     this.subs.add(
       this.loginServices.login(this.IUsuario).subscribe(respuesta => {
-        // next: (respuesta: any) => {
           if(respuesta.status === 200){
+            console.log('----USUARIO----');
             console.log(respuesta.data.rows[0]);
+            localStorage.setItem('usuario', JSON.stringify(respuesta.data.rows[0]));
             this.sweetAlert.alertExitoso('Se inicio sesion correctamente.');
             this.router.navigate(['reservas'])
           } else if(respuesta.status === 404){
@@ -64,7 +65,6 @@ export class LogInComponent implements OnInit {
           if (error.status == 500) {
             console.log('Error en la solicitud:', error.status);
           }
-        // },
       })
     );
   }

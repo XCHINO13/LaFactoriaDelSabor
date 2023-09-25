@@ -87,3 +87,18 @@ insert into roles (id_rol, nombre_rol, estado) values (1, 'admin', 'A');
 
 -- Estado en la tabla de reservas
 ALTER TABLE reserva ADD estado varchar;
+
+-- Añadir Rol
+INSERT INTO roles
+(id_rol, nombre_rol, estado)
+VALUES(2, 'cliente', 'A');
+
+-- Se agregan mas campos a la tabla de reservas 
+ALTER TABLE reserva 
+ADD nombre varchar(50);
+
+ALTER TABLE reserva 
+ADD cant_personas int;
+
+ALTER TABLE reserva 
+ADD telefono int;
