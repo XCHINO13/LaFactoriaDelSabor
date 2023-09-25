@@ -2,10 +2,14 @@ const express = require('express');
 var cors = require('cors');
 const connection = require('./connection');
 const app = express();
-const userRoute = require('./routes/user');
+const userRouteUser = require('./routes/user');
+// const userRouteBooking = require('./routes/booking');
+
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use('/user',userRoute);
+
+app.use('/user',userRouteUser);
+// app.use('/reservas',userRouteBooking);
 
 module.exports = app;

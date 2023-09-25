@@ -76,3 +76,14 @@ create table platos_pedidos
         constraint fk_pedidos
             references pedidos
 );
+
+insert into usuarios (id_usuario, id_rol, nombre, cedula, telefono, correo, contrasena, estado) values (1, 1, 'jhonier', '3125624', '3121315', 'admin@asd.com', 'admin', 'A');
+insert into roles (id_rol, nombre_rol, estado) values (1, 'admin', 'A');
+
+-- secuencia id usuarios revisar si es necesaria
+-- create sequence sec_usuarios
+-- 	minvalue 1
+-- 	increment by 1;
+
+-- Estado en la tabla de reservas
+ALTER TABLE reserva ADD estado varchar;

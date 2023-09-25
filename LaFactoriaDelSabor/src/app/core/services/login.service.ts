@@ -21,8 +21,8 @@ export class LoginService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  public login(a: IUsuario): Observable<any> {
-    return this.http.post<IUsuario>(`${environment.url}user/login`, a, this.headers);
+  public login(usuario: IUsuario): Observable<any> {
+    return this.http.post<IUsuario>(`${environment.url}user/login`, usuario, this.headers);
   }
   
 }
