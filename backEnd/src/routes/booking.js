@@ -1,7 +1,7 @@
-const { response } = require("./helpers/dataResponse");
-const { validarCamposReserva } = require("./helpers/dataValidations");
+const { response } = require("../helpers/dataResponse");
+const { validarCamposReserva } = require("../helpers/dataValidations");
 
-const connection = require("../connection");
+const connection = require("../../connection");
 const Router = require("express");
 const router = Router();
 
