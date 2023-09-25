@@ -9,6 +9,14 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());
 
+<<<<<<< Updated upstream
+=======
+// const htmlResponse = `<h1>Hola backend</h1>`
+// app.use('/', (req, res) => {
+//     res.send("Router no found");
+// })
+
+>>>>>>> Stashed changes
 app.use('/user',require('./routes/user'));
 app.use('/reservas',require('./routes/booking'));
 
