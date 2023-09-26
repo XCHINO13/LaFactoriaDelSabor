@@ -25,3 +25,16 @@
     box-shadow:  5px 5px 10px gray;
 }
 
+
+.table_icon {
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.table_button {
+    background: none;
+    border: 0;
+    color: inherit;
+    margin: 0 3px;
+    cursor: pointer;
+}

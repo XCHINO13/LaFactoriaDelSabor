@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IReserva } from 'src/app/core/data/IReserva';
 import { ReservaService } from 'src/app/core/services/reserva.service';
 import { SweetAlertService } from 'src/app/core/services/sweet-alert.service';
 import { SubSink } from 'subsink';
@@ -14,7 +15,8 @@ export class FiltroReservaComponent implements OnInit {
 
   public formulario: FormGroup = new FormGroup({});
   private subs = new SubSink();
-  public IReserva!: any;
+  public IReserva!: IReserva;
+  public usuario: any;
 
   constructor(
 
@@ -28,9 +30,9 @@ export class FiltroReservaComponent implements OnInit {
         nombre: ['jhonier martinez'],
         telefono: ['1851123'],
         fechaReserva: ['13-05-2002'],
-        cantPersonas: [2],
         horaReserva: ['1:30'],
-        lugarReserva: ['barra']
+        lugarReserva: ['barra'],
+        cantPersonas: [2],
       });
      }
 
@@ -50,25 +52,34 @@ export class FiltroReservaComponent implements OnInit {
     get fieldLugarReserva(): AbstractControl | null {
       return this.formulario.get('lugarReserva');
     }
+    get fieldCantPersonas(): AbstractControl | null {
+      return this.formulario.get('cantPersonas');
+    }
 
   ngOnInit(): void {
+    this.usuario = JSON.parse(localStorage.getItem('usuario')!)
   }
 
   crearReserva() {
 
+  
     this.IReserva = {
-      id_usuario: 1,
+      id_usuario: this.usuario.id_usuario,
       nombre: this.fieldNombre?.value,
       telefono: this.fieldTelefono?.value,
+      fechaSolicitud: 'fechasoli',
+      horaSolicitud: 'hora soli',
       fechaReserva: this.fieldFechaReserva?.value,
       horaReserva: this.fieldHoraReserva?.value,
       lugarReserva: this.fieldLugarReserva?.value,
+      cantPersonas: this.fieldCantPersonas?.value,
     };
+
+    console.log(this.IReserva);
 
     this.subs.add(this.reservaServices.crearReserva(this.IReserva).subscribe( resp => {
       console.log('crear reserva');
       console.log(resp);
-      console.log(this.IReserva);
       if(resp.status === 401) {
         this.sweetAlert.alertFracaso(resp.message)
       }

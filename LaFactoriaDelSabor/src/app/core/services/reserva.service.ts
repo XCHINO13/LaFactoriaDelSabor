@@ -22,4 +22,9 @@ export class ReservaService {
     console.log(idUsuario);
     return this.http.post<number>(`${environment.url}reservas/consultarReservas/${idUsuario}`, this.headers);
   }
+  
+  public eliminarReserva(id_reserva: number): Observable<any> {
+    console.log(id_reserva);
+    return this.http.post<number>(`${environment.url}reservas/eliminarReserva/${id_reserva}`, this.headers);
+  }
 }
