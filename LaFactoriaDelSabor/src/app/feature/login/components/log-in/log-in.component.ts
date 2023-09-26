@@ -28,8 +28,8 @@ export class LogInComponent implements OnInit {
     private router: Router
     ) {
     this.formulario = this.fb.group({
-      usuario: ['admin@asd.com'],
-      contasena: ['admin'],
+      usuario: ['admin'],
+      contasena: ['112233'],
     });
   }
 

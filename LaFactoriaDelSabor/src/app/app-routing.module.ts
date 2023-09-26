@@ -4,11 +4,11 @@ import { HomeMenuComponent } from './feature/home/containers/home-menu/home-menu
 import { HomeModule } from './feature/home/home.module';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'home'},
-  {
-    path: '', loadChildren: () =>
-      import('./feature/home/home.module').then(mod => mod.HomeModule)
-  },
+  { path: '', pathMatch: 'full', redirectTo: 'home'},
+  // {
+  //   path: '', loadChildren: () =>
+  //     import('./feature/home/home.module').then(mod => mod.HomeModule)
+  // },
   {
     path: 'home', loadChildren: () =>
       import('./feature/home/home.module').then(mod => mod.HomeModule)
@@ -18,10 +18,14 @@ const routes: Routes = [
       import('./feature/login/login.module').then(mod => mod.LoginModule)
   },
   {
+    path: 'register', loadChildren: () =>
+      import('./feature/register/register.module').then(mod => mod.RegisterModule)
+  },
+  {
     path: 'reservas', loadChildren: () =>
       import('./feature/reservas/reservas.module').then(mod => mod.ReservasModule)
   },
-  { path: '**', component: HomeMenuComponent},
+  { path: '**', redirectTo: 'home'},
 ];
 
 @NgModule({

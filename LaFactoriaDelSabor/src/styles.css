@@ -38,3 +38,53 @@
     margin: 0 3px;
     cursor: pointer;
 }
+
+.container_body {
+    width: 80%;
+    margin: 2rem auto;
+}
+
+.labelInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.labelInput input {
+    height: 2rem;
+    border: none;
+    outline: none;
+    padding: 0.1rem 1rem;
+    background-color: rgba(165, 42, 42, 0.23);
+    box-shadow: 5px 5px 5px gray;
+    border-radius: 45px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.labelInput label {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.botton {
+    height: 2.5rem;
+    width: 12rem;
+    border: none;
+    margin: 0 0.5rem;
+    border-radius: 45px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn_limpiar {
+    color: brown;
+    background-color: white;
+    border: 3px solid brown;
+}
+
+.btn_guardar {
+    color: white;
+    background-color: brown;
+}

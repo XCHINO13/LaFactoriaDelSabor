@@ -50,7 +50,8 @@ export class TablaReservasComponent implements OnInit {
   }
 
   editarReserva(id_reserva: number) {
-    this.eliminarReserva(id_reserva)
+    // this.eliminarReserva(id_reserva);
+    
   }
 
 }
