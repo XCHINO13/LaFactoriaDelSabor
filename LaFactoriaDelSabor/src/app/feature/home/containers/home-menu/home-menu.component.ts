@@ -26,12 +26,13 @@ const scene = new THREE.Scene();
   styleUrls: ['./home-menu.component.css'],  
 })
 export class HomeMenuComponent implements OnInit {
-  idiom = 'Español';
+
+  idiom!: string;
 
   constructor(public translate: TranslateService) {
     translate.addLangs(['Ingles', 'Español']);
     translate.setDefaultLang('Español');
-    translate.use(this.idiom);
+    // translate.use(this.idiom);
   }
 
   ngOnInit(): void {
@@ -46,6 +47,7 @@ export class HomeMenuComponent implements OnInit {
       this.idiom = 'Español';
       this.translate.use(this.idiom);
     }
+    localStorage.setItem('idioma', this.idiom)
   };
 
 

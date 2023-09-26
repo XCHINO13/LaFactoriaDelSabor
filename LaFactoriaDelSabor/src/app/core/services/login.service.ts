@@ -25,4 +25,8 @@ export class LoginService {
     return this.http.post<IUsuario>(`${environment.url}user/login`, usuario, this.headers);
   }
   
+  public register(usuario: IUsuario): Observable<any> {
+    return this.http.post<IUsuario>(`${environment.url}user/register`, usuario, this.headers);
+  }
+  
 }

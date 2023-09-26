@@ -2,7 +2,7 @@ function validarCampos(objeto) {
   if (!Object.keys(objeto).length) return false;
 
   for (let item in objeto) {
-    if (!objeto[item] || objeto[item].trim() === "") {
+    if (!objeto[item] || objeto[item].trim() === "" || objeto[item] == 'null') {
       return false;
     }
   }

@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // COM Translate
 import { TranslateLoader, TranslateModule, TranslatePipe  } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
         deps: [HttpClient]
       }
     }),
+    SharedModule
     // 
   ],
   providers: [],
