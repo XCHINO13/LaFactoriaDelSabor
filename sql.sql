@@ -77,9 +77,6 @@ create table platos_pedidos
             references pedidos
 );
 
-insert into usuarios (id_usuario, id_rol, nombre, cedula, telefono, correo, contrasena, estado) values (1, 1, 'jhonier', '3125624', '3121315', 'admin@asd.com', 'admin', 'A');
-insert into roles (id_rol, nombre_rol, estado) values (1, 'admin', 'A');
-
 -- secuencia id usuarios revisar si es necesaria
 -- create sequence sec_usuarios
 -- 	minvalue 1
@@ -102,3 +99,60 @@ ADD cant_personas int;
 
 ALTER TABLE reserva 
 ADD telefono int;
+
+-- Se ajusta la tabla de platos para asignarla a empresas 27/09/2023
+
+ALTER TABLE platos
+ADD precio int;
+
+ALTER TABLE platos
+ADD descripcion varchar(100);
+
+ALTER TABLE usuarios
+ADD id_empresa int;
+
+create table empresas
+(
+    id_empresa serial not null
+        constraint pk_id_empresa
+            primary key,
+    nombre varchar(50),
+    direccion varchar(50)
+    
+);
+
+ALTER TABLE usuarios
+ADD constraint id_empresa 
+foreign key (id_empresa) 
+references empresas;
+
+-- Actualizar id_empresa en usuarios a una empresa
+update usuarios set id_empresa = 1 where true;
+
+-- Crear empresas de prueba
+INSERT INTO empresas
+(nombre, direccion)
+VALUES('PLAYA ESCONDIDA', 'carrera 1 # 25 b 63');
+
+INSERT INTO empresas
+(nombre, direccion)
+VALUES('LA FACTORIA DEL SABOR', 'carrera 1 # 45 a 65');
+
+-- Relasionar los platos por empresa
+ALTER TABLE platos
+ADD id_empresa int;
+
+ALTER TABLE platos
+ADD constraint id_empresa 
+foreign key (id_empresa) 
+references empresas;
+
+INSERT INTO platos
+(id_platos, nombre_plato, imagen_plato, precio, descripcion, id_empresa)
+VALUES(nextval('platos_id_platos_seq'),
+'filete', 
+'imegen.png', 
+'15000', 
+'carne de la mejor calidad a la planca', 
+1);
+
