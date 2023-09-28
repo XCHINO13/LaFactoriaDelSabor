@@ -3,12 +3,14 @@ const { validarCamposReserva } = require("../helpers/dataValidations");
 
 const connection = require("../../connection");
 
-const consultarAllPlatos = async (req, res) => {
+const consultarPlatos = async (req, res) => {
     try {
-        // const {
-        //     id_usuario
-        // } = req.params;
-        // const consultarUsuario = "SELECT * FROM usuarios WHERE id_usuario = $1;";
+        consultarPlatos = "SELECT * FROM platos;";
+        const data = (await connection.query(consultarPlatos)).rows
+        return response(res, { data: data ,msg: "Platos", statusCode: 200});
+
+        // const { id_usuario } = req.params;
+        // const consultarUsuario = "SELECT * FROM usuarios ;";
         // const datosUsuario = await connection.query(consultarUsuario, [id_usuario]);
         // const infoUsuario = datosUsuario.rows[0];
         // console.log(` USUARIO => ID${id_usuario} ROL${infoUsuario.id_rol} EMPRESA${infoUsuario.id_empresa}`)
@@ -34,15 +36,13 @@ const consultarAllPlatos = async (req, res) => {
         //         break;
         // }
 
-        return response(res, {msg: ""
-        });
     } catch (error) {
         console.log("Error -> ", error.message);
         return res.status(500).json(error.message);
     }
 }
 
-const consultarPlatosByEmpresa = async (req, res) => {
+const platosPorEmpresa = async (req, res) => {
     try {
         const {
             id_empresa
@@ -64,6 +64,6 @@ const consultarPlatosByEmpresa = async (req, res) => {
 }
 
 module.exports = {
-    consultarAllPlatos,
-    consultarPlatosByEmpresa
+    consultarPlatos,
+    platosPorEmpresa
 };

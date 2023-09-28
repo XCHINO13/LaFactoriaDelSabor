@@ -126,9 +126,6 @@ ADD constraint id_empresa
 foreign key (id_empresa) 
 references empresas;
 
--- Actualizar id_empresa en usuarios a una empresa
-update usuarios set id_empresa = 1 where true;
-
 -- Crear empresas de prueba
 INSERT INTO empresas
 (nombre, direccion)
@@ -137,6 +134,9 @@ VALUES('PLAYA ESCONDIDA', 'carrera 1 # 25 b 63');
 INSERT INTO empresas
 (nombre, direccion)
 VALUES('LA FACTORIA DEL SABOR', 'carrera 1 # 45 a 65');
+
+-- Actualizar id_empresa en usuarios a una empresa
+update usuarios set id_empresa = 1 where true;
 
 -- Relasionar los platos por empresa
 ALTER TABLE platos
@@ -156,3 +156,6 @@ VALUES(nextval('platos_id_platos_seq'),
 'carne de la mejor calidad a la planca', 
 1);
 
+INSERT INTO roles
+(id_rol, nombre_rol, estado)
+VALUES(3, 'superadmin', 'A');

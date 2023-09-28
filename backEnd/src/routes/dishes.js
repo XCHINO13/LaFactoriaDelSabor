@@ -1,9 +1,9 @@
 const Router = require("express");
 const router = Router();
 
-const {consultarAllPlatos, consultarPlatosByEmpresa} = require('../Controllers/dishesController');
+const {consultarPlatos, platosPorEmpresa} = require('../Controllers/dishesController');
 
-router.post("/consultarPlatos/", consultarAllPlatos);
-router.post("/consultarPlatos/:id_empresa", consultarPlatosByEmpresa);
+router.get("/consultarPlatos", consultarPlatos);
+router.post("/platosPorEmpresa/:id_empresa", platosPorEmpresa);
 
 module.exports = router;
