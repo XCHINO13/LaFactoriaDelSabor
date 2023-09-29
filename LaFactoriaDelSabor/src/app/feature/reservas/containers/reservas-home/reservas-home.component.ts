@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservas-home',
@@ -8,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class ReservasHomeComponent implements OnInit {
 
   public titulo = 'Reserva';
+  public usuario!: any;
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
+    this.usuario = JSON.parse(localStorage.getItem('usuario')!);
+    console.log(this.usuario);
+    if(this.usuario === null){
+      this.router.navigate(['login']);
+    }
   }
 
 }

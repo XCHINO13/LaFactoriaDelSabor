@@ -3,6 +3,8 @@ import { Route, Router } from '@angular/router';
 import { LoginService } from 'src/app/core/services/login.service';
 import { SubSink } from 'node_modules/subsink';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { SubjectsService } from 'src/app/core/services/subjects.service';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class NavbarComponent implements OnInit {
-  constructor(private router: Router, private loginServices: LoginService, public translate: TranslateService) {
+  constructor(private router: Router, private loginServices: LoginService, public translate: TranslateService, private subjectService: SubjectsService) {
   }
 
   private subs = new SubSink();
@@ -21,6 +23,9 @@ export class NavbarComponent implements OnInit {
   public botonAccion!: boolean;
   public nombreBoton!: string;
   public url: string = window.location.pathname;
+  public usuario!: any;
+  public ocultarLogout = false;
+  btnLogoutRecibido!: boolean;
 
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
@@ -35,10 +40,17 @@ export class NavbarComponent implements OnInit {
   
 
   ngOnInit(): void {
+    
     this.calcScreen();
     this.translate.use(localStorage.getItem('idioma')!)
     this.url = window.location.pathname;
     this.loginAndRegister(this.url);
+    this.validarLogin();
+
+    this.subs.add(this.subjectService.validarLogin$.subscribe((valor) => {
+      this.btnLogoutRecibido = valor;
+      this.validarLogin();
+    }));
   }
 
   calcScreen() {
@@ -73,6 +85,22 @@ export class NavbarComponent implements OnInit {
     }
 
 
+  }
+
+  validarLogin() {
+    this.usuario = JSON.parse(localStorage.getItem('usuario')!);
+    if(this.usuario == null){
+      this.ocultarLogout = true;
+      this.router.navigate(['home']);
+    } else {
+      this.ocultarLogout = false;
+    }
+  }
+
+  logOut() {
+    localStorage.removeItem('usuario');
+    console.log(this.ocultarLogout);
+    this.validarLogin();
   }
 
   redireccionHome() {

@@ -22,9 +22,10 @@ export class CartaComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuario = JSON.parse(localStorage.getItem('usuario')!);
-    if(this.usuario.id_empresa == null || this.usuario.id_empresa == 'undefined') {
-      this.consultarTodosPlatos();
-    }
+
+
+    this.consultarTodosPlatos();
+    
 
   }
 

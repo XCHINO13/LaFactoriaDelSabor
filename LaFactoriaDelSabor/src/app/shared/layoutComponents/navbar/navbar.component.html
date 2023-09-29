@@ -24,9 +24,12 @@
         </ul>
     </div>
 
-    <div class="navbarMenu__btn">
+    <div class="navbarMenu__btn" *ngIf="ocultarLogout">
         <button type="button" class="" (click)="loginAndRegister('login')" *ngIf="botonAccion">{{nombreBoton}}</button>
         <button type="button" class="" (click)="loginAndRegister('register')" *ngIf="!botonAccion">{{nombreBoton}}</button>
+    </div>
+    <div class="navbarMenu__btn" *ngIf="!ocultarLogout">
+        <button type="button" (click)="logOut()">Salir</button>
     </div>
 
 </div>
