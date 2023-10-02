@@ -45,7 +45,6 @@ export class NavbarComponent implements OnInit {
     this.translate.use(localStorage.getItem('idioma')!)
     this.url = window.location.pathname;
     this.loginAndRegister(this.url);
-    this.validarLogin();
 
     this.subs.add(this.subjectService.validarLogin$.subscribe((valor) => {
       this.btnLogoutRecibido = valor;

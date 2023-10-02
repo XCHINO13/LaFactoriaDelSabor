@@ -1,7 +1,7 @@
 <div class="container__module">
   <!-- <pre>{{formulario.getRawValue() | json}}</pre> -->
     <div class="card__module">
-      <form action="" class="card__from" [formGroup]="formulario" (ngSubmit)="crearReserva()">
+      <form action="" class="card__from" [formGroup]="formulario" (ngSubmit)="crearReserva($event)">
         <div class="container__form">
           <div class="labelInput">
             <label>Nombre</label>
@@ -13,7 +13,7 @@
           </div>
           <div class="labelInput">
             <label>Cant. Personas</label>
-            <input type="text" formControlName="cantPersonas"/>
+            <input type="number" formControlName="cantPersonas"/>
           </div>
           <div class="labelInput">
             <label>Fecha</label>
@@ -30,7 +30,7 @@
         </div>
   
         <div class="form__botton">
-            <!-- <button class="botton btn_limpiar">Limpiar</button> -->
+            <button type="button" class="botton btn_limpiar">Limpiar</button>
             <button class="botton btn_guardar">Guardar</button>
         </div>
       </form>

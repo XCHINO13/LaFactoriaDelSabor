@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IReserva } from 'src/app/core/data/IReserva';
 
 @Component({
   selector: 'app-reservas-home',
@@ -10,6 +11,7 @@ export class ReservasHomeComponent implements OnInit {
 
   public titulo = 'Reserva';
   public usuario!: any;
+  public reserva!: IReserva;
 
   constructor( private router: Router) { }
 
@@ -19,6 +21,10 @@ export class ReservasHomeComponent implements OnInit {
     if(this.usuario === null){
       this.router.navigate(['login']);
     }
+  }
+
+  actualizarReserva(reserva: IReserva) {
+    this.reserva = reserva;
   }
 
 }

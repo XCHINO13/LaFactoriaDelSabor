@@ -11,20 +11,31 @@ router.post("/registrarReserva", async (req, res) => {
     console.log(reserva);
     const consulta = "INSERT INTO reserva (id_reserva, id_usuario, fecha_solicitud, hora_solicitud, fecha_reserva, hora_reserva, lugar_reserva, id_pedido, estado, nombre, telefono, cant_personas) VALUES (nextval('reserva_id_reserva_seq'), $1, $2, $3, $4, $5, $6, null, 'A', $7, $8, $9)";
     const consultaValidarReserva = "SELECT * FROM reserva WHERE id_usuario = $1 AND estado = 'A';";
-    const data = await connection.query(consultaValidarReserva, [reserva.id_usuario]);
-    console.log("reserva");
-    console.log(reserva);
+    
+    if(!reserva.id_reserva){
 
-    if (data.rows.length > 0) {
-      response(res, { msg: "Ya tienes una reserva creada.", statusCode: 401 });
-    } else {
+    if(reserva.id_rol === 2){
+      const data = await connection.query(consultaValidarReserva, [reserva.id_usuario]);
+      if (data.rows.length > 0) {
+        return response(res, {data: data, msg: "Ya tienes una reserva creada.", statusCode: 401 });
+      }
+    } 
+    
       if (validarCamposReserva(reserva)) {
         const data = await connection.query(consulta, [reserva.id_usuario, reserva.fechaSolicitud, reserva.horaSolicitud, reserva.fechaReserva, reserva.horaReserva, reserva.lugarReserva, reserva.nombre, reserva.telefono, reserva.cantPersonas]);
-        response(res, { data: data.rows, msg: "Se creo la reserva correctamente.", statusCode: 200 });
+        console.log('jashdkaushbdkuad');
+        return response(res, { data: data.rows, msg: "Se creo la reserva correctamente.", statusCode: 200 });
       } else {
-        response(res, { msg: "Verifica los datos de la reserva.", statusCode: 400 });
+        return response(res, { msg: "Verifica los datos de la reserva.", statusCode: 400 });
       }
+    } else {
+
+      consulta = ""
+
+
     }
+
+
   } catch (error) {
     console.log("ERROR =>", error.message);
     return res.status(500).json(error.message);

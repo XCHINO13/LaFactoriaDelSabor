@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IReserva } from 'src/app/core/data/IReserva';
+import { UtilFiltros } from 'src/app/core/models/UtilFiltros';
 import { ReservaService } from 'src/app/core/services/reserva.service';
+import { SubjectsService } from 'src/app/core/services/subjects.service';
 import { SweetAlertService } from 'src/app/core/services/sweet-alert.service';
 import { SubSink } from 'subsink';
 
@@ -17,22 +19,53 @@ export class FiltroReservaComponent implements OnInit {
   private subs = new SubSink();
   public IReserva!: IReserva;
   public usuario: any;
+  public reservaEditar!: IReserva;
+  public isFormReady = true;
+  // @Input() reservaActualizar!: IReserva;
+
+  @Input() set reservaActualizar(data: IReserva) {
+    this.reservaEditar = data;
+    this.informacionFiltrosEditar(this.reservaEditar);
+    // this.utilInitForm();
+  }
+
+  public async utilInitForm(): Promise<boolean>{
+    return new Promise((resolve)=>{
+      this.initForm();
+      setTimeout(()=>{
+        resolve(this.isFormReady);
+      },1000);
+    });
+  }
+
+  public async validarConstruccionFormulario(): Promise<boolean>{
+    return new Promise((resolve)=>{
+      const valor = this.formulario.status === 'INVALID' ? true: false;
+      resolve(valor);
+    });
+  }
+
 
   constructor(
 
       private fb: FormBuilder, 
       private reservaServices: ReservaService,
       private sweetAlert: SweetAlertService,
-      private router: Router
+      private router: Router,
+      private subjectService: SubjectsService
 
       ) {
+        this.initForm();
+     }
+
+     public initForm(): void{
       this.formulario = this.fb.group({
-        nombre: ['jhonier martinez'],
-        telefono: ['1851123'],
-        fechaReserva: ['13-05-2002'],
-        horaReserva: ['1:30'],
-        lugarReserva: ['barra'],
-        cantPersonas: [2],
+        nombre: [],
+        telefono: [],
+        fechaReserva: [],
+        horaReserva: [],
+        lugarReserva: [],
+        cantPersonas: [],
       });
      }
 
@@ -60,11 +93,11 @@ export class FiltroReservaComponent implements OnInit {
     this.usuario = JSON.parse(localStorage.getItem('usuario')!)
   }
 
-  crearReserva() {
-
-  
+  crearReserva(idReserva: number) {
     this.IReserva = {
+      id_rol: this.usuario.id_rol,
       id_usuario: this.usuario.id_usuario,
+      id_reserva: idReserva > 0 ? idReserva: null,
       nombre: this.fieldNombre?.value,
       telefono: this.fieldTelefono?.value,
       fechaSolicitud: 'fechasoli',
@@ -81,9 +114,18 @@ export class FiltroReservaComponent implements OnInit {
       console.log('crear reserva');
       console.log(resp);
       if(resp.status === 401) {
-        this.sweetAlert.alertFracaso(resp.message)
+        this.sweetAlert.alertFracaso(resp.message);
       }
     }))
+  }
+
+  public informacionFiltrosEditar(reserva: any): void {
+    UtilFiltros.valorInput('nombre', reserva?.nombre, this.formulario);
+    UtilFiltros.valorInput('telefono', reserva?.telefono, this.formulario);
+    UtilFiltros.valorInput('cantPersonas', reserva?.cant_personas, this.formulario);
+    UtilFiltros.valorInput('fechaReserva', reserva?.fecha_reserva, this.formulario);
+    UtilFiltros.valorInput('horaReserva', reserva?.hora_reserva, this.formulario);
+    UtilFiltros.valorInput('lugarReserva', reserva?.lugar_reserva, this.formulario);
   }
 
 }
