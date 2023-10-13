@@ -159,3 +159,6 @@ VALUES(nextval('platos_id_platos_seq'),
 INSERT INTO roles
 (id_rol, nombre_rol, estado)
 VALUES(3, 'superadmin', 'A');
+
+-- La columna de telefono estaba en int y no soprtaba los digitos
+ALTER table reserva ALTER COLUMN telefono type varchar;

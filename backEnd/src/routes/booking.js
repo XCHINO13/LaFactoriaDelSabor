@@ -21,12 +21,12 @@ router.post("/registrarReserva", async (req, res) => {
         }
       } else if (reserva.id_rol !== 2 && reserva.id_reserva !== null) {
         const actualizar = "UPDATE reserva SET fecha_reserva = $1, hora_reserva = $2, lugar_reserva = $3, nombre = $4, telefono = $5, cant_personas = $6 WHERE id_reserva = $7";
-        const reservaActualizada = await connection.query(actualizar, [reserva.fecha_reserva, reserva.hora_reserva, reserva.lugar_reserva, reserva.nombre, reserva.telefono, reserva.cant_personas, reserva.id_reserva]);
+        const reservaActualizada = await connection.query(actualizar, [reserva.fechaReserva, reserva.horaReserva, reserva.lugarReserva, reserva.nombre, reserva.telefono, reserva.cantPersonas, reserva.id_reserva]);
         return response(res, { data: reservaActualizada.rows, msg: "Se actualizo la reserva correctamente.", statusCode: 200 });
       }
 
       if (validarCamposReserva(reserva)) {
-        const data = await connection.query(consulta, [reserva.id_usuario, reserva.fecha_solicitud, reserva.hora_solicitud, reserva.fecha_reserva, reserva.hora_reserva, reserva.lugar_reserva, reserva.nombre, reserva.telefono, reserva.cant_personas]);
+        const data = await connection.query(consulta, [reserva.id_usuario, reserva.fechaSolicitud, reserva.horaSolicitud, reserva.fechaReserva, reserva.horaReserva, reserva.lugarReserva, reserva.nombre, reserva.telefono, reserva.cantPersonas]);
         return response(res, { data: data.rows, msg: "Se creo la reserva correctamente.", statusCode: 200 });
       } else {
         return response(res, { msg: "Verifica los datos de la reserva.", statusCode: 400 });

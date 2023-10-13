@@ -26,6 +26,8 @@ export class FiltroReservaComponent implements OnInit {
   @Input() set reservaActualizar(data: IReserva) {
     this.reservaEditar = data;
     this.informacionFiltrosEditar(this.reservaEditar);
+    console.log('this.reservaEditar');
+    console.log(this.reservaEditar);
     // this.utilInitForm();
   }
 
@@ -94,10 +96,12 @@ export class FiltroReservaComponent implements OnInit {
   }
 
   crearReserva(idReserva: number) {
+    console.log('idReserva');
+    console.log(this.reservaEditar);
     this.IReserva = {
       id_rol: this.usuario.id_rol,
       id_usuario: this.usuario.id_usuario,
-      id_reserva: idReserva > 0 ? idReserva: null,
+      id_reserva: this.reservaEditar?.id_reserva > 0 ? this.reservaEditar.id_reserva : null,
       nombre: this.fieldNombre?.value,
       telefono: this.fieldTelefono?.value,
       fechaSolicitud: 'fechasoli',
@@ -107,8 +111,6 @@ export class FiltroReservaComponent implements OnInit {
       lugarReserva: this.fieldLugarReserva?.value,
       cantPersonas: this.fieldCantPersonas?.value,
     };
-
-    console.log(this.IReserva);
 
     this.subs.add(this.reservaServices.crearReserva(this.IReserva).subscribe( resp => {
       console.log('crear reserva');
