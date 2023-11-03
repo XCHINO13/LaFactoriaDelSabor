@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   public menuDesplegable = true;
   public navbar = false;
   public botonAccion!: boolean;
-  public nombreBoton!: string;
+  // public nombreBoton!: string;
   public url: string = window.location.pathname;
   public usuario!: any;
   public ocultarLogout = false;
@@ -65,20 +65,20 @@ export class NavbarComponent implements OnInit {
   loginAndRegister(boton?: string) {
 
     if(this.url == '/login'){
-      this.nombreBoton = 'Register';
+      // this.nombreBoton = 'Register';
     } else if(this.url == '/register'){
-      this.nombreBoton = 'Login';
+      // this.nombreBoton = 'Login';
       this.botonAccion = true;
     }else {
-      this.nombreBoton = 'Login';
+      // this.nombreBoton = 'Login';
       this.botonAccion = true;
     }
     if(boton == 'login'){
-      this.nombreBoton = 'Register';
+      // this.nombreBoton = 'Register';
       this.router.navigate(['login']);
       this.botonAccion = false;
     } else if(boton == 'register'){
-      this.nombreBoton = 'Login';
+      // this.nombreBoton = 'Login';
       this.router.navigate(['register']);
       this.botonAccion = true;
     }

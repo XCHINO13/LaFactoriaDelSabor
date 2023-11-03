@@ -26,11 +26,16 @@ export class FiltroRegisterComponent implements OnInit {
 
     ) {
     this.formulario = this.fb.group({
-      nombre: ['jhonier yela'],
-      cedula: ['51355165'],
-      telefono: ['1851123'],
-      correo: ['clienteprueba'],
-      contrasena: ['112233']
+      nombre: [''],
+      cedula: [''],
+      telefono: [''],
+      correo: [''],
+      contrasena: ['']
+      // nombre: ['jhonier yela'],
+      // cedula: ['51355165'],
+      // telefono: ['1851123'],
+      // correo: ['clienteprueba'],
+      // contrasena: ['112233']
     });}
 
     get fieldNombre(): AbstractControl | null {

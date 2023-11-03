@@ -20,15 +20,15 @@
         <ul>
             <li><a (click)="redireccionHome()">{{'NAVBAR_NAVIGATE' | translate}}</a></li>
             <ng-container *ngIf="usuario">
-                <li><a href="reservas">RESERVAS</a></li>
+                <li><a href="reservas">{{'NAVBAR_RESERVAS' | translate}}</a></li>
             </ng-container>
             <!-- <li><a href="#">DRINKS</a></li> -->
         </ul>
     </div>
 
     <div class="navbarMenu__btn" *ngIf="ocultarLogout">
-        <button type="button" class="button" (click)="loginAndRegister('login')" *ngIf="botonAccion">{{nombreBoton}}</button>
-        <button type="button" class="button" (click)="loginAndRegister('register')" *ngIf="!botonAccion">{{nombreBoton}}</button>
+        <button type="button" class="button" (click)="loginAndRegister('login')" *ngIf="botonAccion">{{ 'NAVBAR_LOGIN' | translate }}</button>
+        <button type="button" class="button" (click)="loginAndRegister('register')" *ngIf="!botonAccion">{{ 'NAVBAR_REGISTER' | translate }}</button>
     </div>
     <div class="" *ngIf="!ocultarLogout">
         <button type="button" class="button_logout" (click)="logOut()"><img src="assets/img/oterIcons/salir.png" alt=""></button>

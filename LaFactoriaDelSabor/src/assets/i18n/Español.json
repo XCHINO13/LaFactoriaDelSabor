@@ -1,7 +1,23 @@
 {
+    "NAVBAR_RESERVAS": "Ingresar",
     "NAVBAR_NAVIGATE": "PLATOS",
+    "NAVBAR_LOGIN": "Iniciar",
+    "NAVBAR_REGISTER": "Registro",
+
     "HEADER_TITLE1": "FACTORIA",
     "HEADER_TITLE2": "DEL",
-    "HEADER_TITLE3": "SABOR"
+    "HEADER_TITLE3": "SABOR",
 
+    "LOGIN_TITLE1": "INICIO",
+    "LOGIN_LABEL1": "Usuario",
+    "LOGIN_LABEL2": "Contraseña",
+    "LOGIN_SINGIN": "Ingresar",
+
+    "REGISTER_NAME": "Nombre",
+    "REGISTER_ID": "Cedula",
+    "REGISTER_PHONE": "Telefono",
+    "REGISTER_EMAIL": "Correo",
+    "REGISTER_CONTRASENA": "Contraseña"
+
+    
 }

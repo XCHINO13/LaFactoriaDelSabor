@@ -30,8 +30,10 @@ export class LogInComponent implements OnInit {
     private subjectsService: SubjectsService
     ) {
     this.formulario = this.fb.group({
-      usuario: ['admin'],
-      contasena: ['112233'],
+      usuario: [''],
+      contasena: [''],
+      // usuario: ['admin'],
+      // contasena: ['112233'],
     });
   }
 

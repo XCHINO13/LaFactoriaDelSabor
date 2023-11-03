@@ -1,27 +1,27 @@
 <div class="container__module">
-  <pre>{{formulario.getRawValue() | json}}</pre>
+  <!-- <pre>{{formulario.getRawValue() | json}}</pre> -->
   <div class="card__module">
 
     <form action="" class="card__from" [formGroup]="formulario" (ngSubmit)="crearUsuario()">
         <div class="container__form">
           <div class="labelInput">
-            <label>Nombre</label>
+            <label>{{ 'REGISTER_NAME' | translate }}</label>
             <input type="text" formControlName="nombre" />
           </div>
           <div class="labelInput">
-            <label>Cedula</label>
+            <label>{{ 'REGISTER_ID' | translate }}</label>
             <input type="text" formControlName="cedula" />
           </div>
           <div class="labelInput">
-            <label>Telefono</label>
+            <label>{{ 'REGISTER_PHONE' | translate }}</label>
             <input type="text" formControlName="telefono"/>
           </div>
           <div class="labelInput">
-            <label>Correo</label>
+            <label>{{ 'REGISTER_EMAIL' | translate }}</label>
             <input type="text" formControlName="correo"/>
           </div>
           <div class="labelInput">
-            <label>Contraseña</label>
+            <label>{{ 'REGISTER_CONTRASENA' | translate }}</label>
             <input type="text" formControlName="contrasena"/>
           </div>
         </div>

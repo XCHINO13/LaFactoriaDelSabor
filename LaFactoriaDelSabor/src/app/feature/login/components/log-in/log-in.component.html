@@ -4,10 +4,10 @@
 
     <form class="login_form" [formGroup]="formulario" (ngSubmit)="loginUser()">
 
-        <h2>LOGIN</h2>
-        <input  placeholder="Usuario" class="login__formInput" formControlName="usuario">
-        <input type="text" placeholder="Contraseña" class="login__formInput" formControlName="contasena">
-        <button class="login__formButton">Sing in</button>
+        <h2>{{ "LOGIN_TITLE1" | translate }}</h2>
+        <input  placeholder="{{ 'LOGIN_LABEL1' | translate}}" class="login__formInput" formControlName="usuario">
+        <input type="text" placeholder="{{ 'LOGIN_LABEL2' | translate }}" class="login__formInput" formControlName="contasena">
+        <button class="login__formButton">{{ 'LOGIN_SINGIN' | translate }}</button>
         <a href="" class="login__formForget">Forget password?</a>
 
     </form>

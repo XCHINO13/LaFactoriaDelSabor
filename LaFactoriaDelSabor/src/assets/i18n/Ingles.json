@@ -1,8 +1,21 @@
 {
     "NAVBAR_NAVIGATE": "DISHES",
+    "NAVBAR_LOGIN": "Login",
+    "NAVBAR_REGISTER": "Register",
+
     "HEADER_TITLE": "DISHES",
     "HEADER_TITLE1": "FACTORY",
     "HEADER_TITLE2": "OF",
-    "HEADER_TITLE3": "TASTE"
-    
+    "HEADER_TITLE3": "TASTE",
+
+    "LOGIN_TITLE1": "LOGIN",
+    "LOGIN_LABEL1": "User",
+    "LOGIN_LABEL2": "Password",
+    "LOGIN_SINGIN": "Sing in",
+
+    "REGISTER_NAME": "Name",
+    "REGISTER_ID": "Identification",
+    "REGISTER_PHONE": "Phone",
+    "REGISTER_EMAIL": "Email",
+    "REGISTER_CONTRASENA": "Password"
 }
