@@ -1,0 +1,38 @@
+<div class="container__module">
+    <!-- <pre>{{formulario.getRawValue() | json}}</pre> -->
+      <div class="card__module">
+        <form action="" class="card__from" [formGroup]="formulario">
+          <div class="container__form">
+            <div class="labelInput">
+              <label>Nombre</label>
+              <input type="text" formControlName="nombre" />
+            </div>
+            <div class="labelInput">
+              <label>Telefono</label>
+              <input type="text" formControlName="telefono"/>
+            </div>
+            <div class="labelInput">
+              <label>Cant. Personas</label>
+              <input type="number" formControlName="cantPersonas"/>
+            </div>
+            <div class="labelInput">
+              <label>Fecha</label>
+              <input type="text" formControlName="fechaReserva"/>
+            </div>
+            <div class="labelInput">
+              <label>Hora</label>
+              <input type="text" formControlName="horaReserva"/>
+            </div>
+            <div class="labelInput">
+              <label>Lugar</label>
+              <input type="text" formControlName="lugarReserva"/>
+            </div>
+          </div>
+    
+          <div class="form__botton">
+              <button type="button" class="botton btn_limpiar">Limpiar</button>
+              <button class="botton btn_guardar">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>

@@ -50,7 +50,7 @@ export class FiltroReservaComponent implements OnInit {
 
   constructor(
 
-      private fb: FormBuilder, 
+      private fb: FormBuilder,
       private reservaServices: ReservaService,
       private sweetAlert: SweetAlertService,
       private router: Router,
