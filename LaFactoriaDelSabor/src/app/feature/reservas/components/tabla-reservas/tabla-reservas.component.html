@@ -32,7 +32,7 @@
         <ng-container matColumnDef="opciones">
             <th *matHeaderCellDef> Opciones </th>
             <td mat-cell *matCellDef="let element"> 
-                <button class="table_button" (click)="editarReserva(element)" *ngIf="usuario.id_rol == '2' ? true : false"><img class="table_icon" src="assets/img/oterIcons/editar.png" alt=""></button>
+                <button class="table_button" (click)="editarReserva(element)" *ngIf="usuario.id_rol == '1' ? true : false"><img class="table_icon" src="assets/img/oterIcons/editar.png" alt=""></button>
                 <button class="table_button" (click)="eliminarReserva(element.id_reserva)"><img class="table_icon" src="assets/img/oterIcons/borrar.png" alt=""></button>
             </td>
         </ng-container>

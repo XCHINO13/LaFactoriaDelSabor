@@ -1,6 +1,7 @@
-import { Component, OnInit, EventEmitter  } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output  } from '@angular/core';
 import { IReserva } from 'src/app/core/data/IReserva';
 import { ReservaService } from 'src/app/core/services/reserva.service';
+import { SubjectsService } from 'src/app/core/services/subjects.service';
 import { SweetAlertService } from 'src/app/core/services/sweet-alert.service';
 import { SubSink } from 'subsink';
 
@@ -12,6 +13,7 @@ import { SubSink } from 'subsink';
 export class TablaReservasComponent implements OnInit {
 
   private subs = new SubSink();
+  @Output() actualizar: EventEmitter<IReserva> = new EventEmitter();
 
   public usuario!: any;
   public dataSource: any;
@@ -20,7 +22,8 @@ export class TablaReservasComponent implements OnInit {
 
   constructor( 
     private reservasService: ReservaService,
-    private sweetAlert: SweetAlertService
+    private sweetAlert: SweetAlertService,
+    private subjectService: SubjectsService
     ) { }
 
   ngOnInit(): void {
@@ -49,9 +52,8 @@ export class TablaReservasComponent implements OnInit {
 
   }
 
-  editarReserva(id_reserva: number) {
-    // this.eliminarReserva(id_reserva);
-    
+  editarReserva(reserva: IReserva) {
+    this.actualizar.emit(reserva);
   }
 
 }

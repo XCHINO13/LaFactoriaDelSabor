@@ -13,8 +13,13 @@ function validarCamposReserva(objeto) {
   if (!Object.keys(objeto).length) return false;
 
   for (let item in objeto) {
-    console.log('jasdas',objeto);
-    if (typeof objeto[item] === "number" || typeof objeto[item] == 'undefined') {
+    console.log('validar objeto',objeto);
+    console.log('item',item);
+
+    if(item == 'id_reserva'){
+      continue;
+    }
+    if (typeof objeto[item] === "number") {
       if (objeto[item] >= 0) {
         continue;
       } else { 

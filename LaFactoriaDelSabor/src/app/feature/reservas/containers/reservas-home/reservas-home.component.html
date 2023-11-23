@@ -6,8 +6,8 @@
 
     <app-titulo-informativo [titulo]="titulo"></app-titulo-informativo>
 
-    <app-filtro-reserva></app-filtro-reserva>
+    <app-filtro-reserva (emitCreacionReserva)="consultarReservaEmit()" [reservaActualizar]="reserva"></app-filtro-reserva>
 
-    <app-tabla-reservas></app-tabla-reservas>
+    <app-tabla-reservas (actualizar)="actualizarReserva($event)"></app-tabla-reservas>
 
 </div>

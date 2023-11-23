@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'reservas', loadChildren: () =>
       import('./feature/reservas/reservas.module').then(mod => mod.ReservasModule)
   },
+  {
+    path: 'platos', loadChildren: () =>
+      import('./feature/platos/platos.module').then(mod => mod.PlatosModule)
+  },
   { path: '**', redirectTo: 'home'},
 ];
 

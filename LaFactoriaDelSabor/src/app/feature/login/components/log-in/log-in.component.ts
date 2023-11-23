@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { IUsuario } from 'src/app/core/data/IUsuario';
 import { LoginService } from 'src/app/core/services/login.service';
+import { SubjectsService } from 'src/app/core/services/subjects.service';
 import { SweetAlertService } from 'src/app/core/services/sweet-alert.service';
 import { SubSink } from 'subsink';
 
@@ -25,11 +26,14 @@ export class LogInComponent implements OnInit {
     private fb: FormBuilder, 
     private loginServices: LoginService,
     private sweetAlert: SweetAlertService,
-    private router: Router
+    private router: Router,
+    private subjectsService: SubjectsService
     ) {
     this.formulario = this.fb.group({
-      usuario: ['admin'],
-      contasena: ['112233'],
+      usuario: [''],
+      contasena: [''],
+      // usuario: ['admin'],
+      // contasena: ['112233'],
     });
   }
 
@@ -55,6 +59,7 @@ export class LogInComponent implements OnInit {
             console.log(respuesta.data.rows[0]);
             localStorage.setItem('usuario', JSON.stringify(respuesta.data.rows[0]));
             this.sweetAlert.alertExitoso('Se inicio sesion correctamente.');
+            this.subjectsService.buttonLogout();;
             this.router.navigate(['reservas'])
           } else if(respuesta.status === 404){
             console.log(respuesta);

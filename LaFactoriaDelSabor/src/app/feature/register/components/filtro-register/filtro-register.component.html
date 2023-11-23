@@ -1,36 +1,60 @@
-<div class="container__module">
-  <pre>{{formulario.getRawValue() | json}}</pre>
-  <div class="card__module">
+<!-- <div class="container__module"> -->
+  <!-- <pre>{{formulario.getRawValue() | json}}</pre> -->
+  <!-- <div class="card__module"> -->
 
-    <form action="" class="card__from" [formGroup]="formulario" (ngSubmit)="crearUsuario()">
+    <!-- <form action="" class="card__from" [formGroup]="formulario" (ngSubmit)="crearUsuario()">
+      <h2>{{ "REGISTER_TITLE1" | translate }}</h2>
         <div class="container__form">
-          <div class="labelInput">
-            <label>Nombre</label>
-            <input type="text" formControlName="nombre" />
-          </div>
-          <div class="labelInput">
-            <label>Cedula</label>
-            <input type="text" formControlName="cedula" />
-          </div>
-          <div class="labelInput">
-            <label>Telefono</label>
-            <input type="text" formControlName="telefono"/>
-          </div>
-          <div class="labelInput">
-            <label>Correo</label>
-            <input type="text" formControlName="correo"/>
-          </div>
-          <div class="labelInput">
-            <label>Contraseña</label>
-            <input type="text" formControlName="contrasena"/>
-          </div>
+            <label>{{ 'REGISTER_NAME' | translate }}</label>
+            <input class="register__formInput" type="text" formControlName="nombre" />
+            <label>{{ 'REGISTER_ID' | translate }}</label>
+            <input class="register__formInput" type="text" formControlName="cedula" />
+            <label>{{ 'REGISTER_PHONE' | translate }}</label>
+            <input class="register__formInput" type="text" formControlName="telefono"/>
+            <label>{{ 'REGISTER_EMAIL' | translate }}</label>
+            <input class="register__formInput" type="text" formControlName="correo"/>
+            <label>{{ 'REGISTER_CONTRASENA' | translate }}</label>
+            <input class="register__formInput" type="text" formControlName="contrasena"/>
         </div>
   
         <div class="form__botton">
             <button type="button" class="botton btn_limpiar" (click)="limpiarFormulario()">Limpiar</button>
             <button class="botton btn_guardar">Guardar</button>
         </div>
-      </form>
+      </form> -->
+      <div class="login">
+
+    <!-- <pre>{{formulario.getRawValue() | json}}</pre> -->
+    <div class="login_side">
+
+      <img src="../../../../../assets/img/fondoComida.jpg">
 
   </div>
+    <form class="login_form" [formGroup]="formulario" (ngSubmit)="crearUsuario()">
+
+
+        <!-- <h2>{{ "LOGIN_TITLE1" | translate }}</h2>
+        <input  placeholder="{{ 'LOGIN_LABEL1' | translate}}" class="login__formInput" formControlName="usuario">
+        <input type="text" placeholder="{{ 'LOGIN_LABEL2' | translate }}" class="login__formInput" formControlName="contasena">
+        <button class="login__formButton">{{ 'LOGIN_SINGIN' | translate }}</button>
+        <a href="" class="login__formForget">Forget password?</a> -->
+        <h2>{{ "REGISTER_TITLE1" | translate }}</h2>
+        <div class="container__form">
+            <input class="register__formInput" placeholder="{{ 'REGISTER_NAME' | translate }}" type="text" formControlName="nombre" />
+            <input class="register__formInput" placeholder="{{ 'REGISTER_ID' | translate }}" type="text" formControlName="cedula" />
+            <input class="register__formInput" placeholder="{{ 'REGISTER_PHONE' | translate }}" type="text" formControlName="telefono"/>
+            <input class="register__formInput" placeholder="{{ 'REGISTER_EMAIL' | translate }}" type="text" formControlName="correo"/>
+            <input class="register__formInput" placeholder="{{ 'REGISTER_CONTRASENA' | translate }}" type="text" formControlName="contrasena"/>
+        </div>
+  
+        <div class="form__botton">
+            <button class="botton btn_guardar">Guardar</button>
+        </div>
+
+    </form>
+
 </div>
+
+
+  <!-- </div>
+</div> -->

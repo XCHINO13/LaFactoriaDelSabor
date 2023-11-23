@@ -16,6 +16,7 @@ app.use(cors());
 
 app.use('/user',require('./routes/user'));
 app.use('/reservas',require('./routes/booking'));
+app.use('/platos', require('./routes/dishes'));
 
 
 

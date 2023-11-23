@@ -39,11 +39,11 @@ router.post("/register", async (req, res) => {
     
     console.log("user");
     console.log(user);
-
-    const consulta = "insert into usuarios (id_usuario, id_rol, nombre, cedula, telefono, correo, contrasena, estado) values (nextval('usuarios_id_usuario_seq'), 1, $1, $2, $3, $4, $5, 'A')";
+    const consulta = "INSERT INTO usuarios (id_usuario, id_rol, nombre, cedula, telefono, correo, contrasena, estado, id_empresa) VALUES (nextval('usuarios_id_usuario_seq'), 2, $1, $2, $3, $4, $5, 'A', null)";
 
     if (validarCampos(user)) {
-      const data = await connection.query(consulta, [user.nombre, user.cedula, user.telefono, user.correo, user.contrasena]);
+  
+      const data = ((await connection.query(consulta, [user.nombre, user.cedula, user.telefono, user.correo, user.contrasena])).rows);
       response(res, { msg: "Se creo el usuario correctamente.", statusCode: 200 });
     } else {
       response(res, { msg: "Todos los campos deben estar llenos.", statusCode: 400 });

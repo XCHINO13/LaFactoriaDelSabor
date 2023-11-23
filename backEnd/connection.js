@@ -6,9 +6,9 @@ const connection = new Pool({
   database: process.env.POSTGRES_DATABASE,
   password: process.env.POSTGRES_PASSWORD,
   port: process.env.DB_PORT,
-  ssl: {
-    rejectUnauthorized: false
-    }
+//   ssl: {
+//     rejectUnauthorized: false
+//     }
 })
 
 // const mysql = require('mysql');

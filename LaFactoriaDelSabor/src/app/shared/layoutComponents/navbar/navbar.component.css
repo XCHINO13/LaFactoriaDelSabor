@@ -77,11 +77,26 @@
   text-decoration: none;
 }
 
-.navbarMenu__btn {
-  /* background-color: antiquewhite; */
+.button_logout {
+  height: 2.5rem;
+  width: 2.5rem;
+  border: none;
+  color: black;
+  font-size: 1rem;
+  margin-right: 2rem;
+  border-radius: 45px;
+  background-color: rgb(255, 208, 0);
 }
 
-.navbarMenu__btn button {
+.button_logout img {
+  height: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.navbarMenu__btn .button {
   height: 2.5rem;
   width: 10rem;
   margin-right: 2rem;

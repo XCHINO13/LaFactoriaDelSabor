@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url: 'https://la-factoria-del-sabor.vercel.app/'
+  // url: 'https://la-factoria-del-sabor.vercel.app/'
+  url: 'http://10.102.1.22:7000/'
 };
 
 /*
