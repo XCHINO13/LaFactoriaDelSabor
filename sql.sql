@@ -162,3 +162,6 @@ VALUES(3, 'superadmin', 'A');
 
 -- La columna de telefono estaba en int y no soprtaba los digitos
 ALTER table reserva ALTER COLUMN telefono type varchar;
+
+ALTER TABLE reserva 
+ALTER COLUMN telefono type VARCHAR(20);

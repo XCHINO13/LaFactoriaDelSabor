@@ -10,6 +10,7 @@
     "HEADER_TITLE3": "TASTE",
 
     "LOGIN_TITLE1": "LOGIN",
+    "REGISTER_TITLE1": "REGISTER",
     "LOGIN_LABEL1": "User",
     "LOGIN_LABEL2": "Password",
     "LOGIN_SINGIN": "Sing in",

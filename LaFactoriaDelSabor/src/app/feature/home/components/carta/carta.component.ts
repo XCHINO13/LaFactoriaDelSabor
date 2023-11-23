@@ -15,10 +15,97 @@ import { SubSink } from 'subsink';
 export class CartaComponent implements OnInit {
 
   private subs = new SubSink();
-  public platos: any;
+  // public platos: any;
   public usuario: any;
 
   constructor(private platosService: PlatosService) {}
+
+  public platos = [
+    {
+      img: './assets/img/hm.jfif',
+      nombre: 'Hamburguesa',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 15.000',
+    },
+    {
+      img: './assets/img/creps.jfif',
+      nombre: 'Creps',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 25.000',
+    },
+    {
+      img: './assets/img/br.jfif',
+      nombre: 'Burrito',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 25.000',
+    },
+    {
+      img: './assets/img/fondoComida.jpg',
+      nombre: 'Pollo a la plancha',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 25.000',
+    },
+    {
+      img: './assets/img/fondoComida.jpg',
+      nombre: 'Pollo a la plancha',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 25.000',
+    },
+    {
+      img: './assets/img/creps.jfif',
+      nombre: 'Creps',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 25.000',
+    },
+    {
+      img: './assets/img/br.jfif',
+      nombre: 'Burrito',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 25.000',
+    },
+    {
+      img: './assets/img/hm.jfif',
+      nombre: 'Hamburguesa',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 15.000',
+    },
+    {
+      img: './assets/img/creps.jfif',
+      nombre: 'Creps',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 25.000',
+    },
+    {
+      img: './assets/img/creps.jfif',
+      nombre: 'Creps',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 25.000',
+    },
+    {
+      img: './assets/img/fondoComida.jpg',
+      nombre: 'Pollo a la plancha',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 25.000',
+    },
+    {
+      img: './assets/img/fondoComida.jpg',
+      nombre: 'Pollo a la plancha',
+      descripcion:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est consequuntur.',
+      precio: '$ 25.000',
+    },
+  ];
 
   ngOnInit(): void {
     this.usuario = JSON.parse(localStorage.getItem('usuario')!);

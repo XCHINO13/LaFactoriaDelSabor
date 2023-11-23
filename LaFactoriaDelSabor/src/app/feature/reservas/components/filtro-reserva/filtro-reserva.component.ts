@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IReserva } from 'src/app/core/data/IReserva';
@@ -30,6 +30,8 @@ export class FiltroReservaComponent implements OnInit {
     console.log(this.reservaEditar);
     // this.utilInitForm();
   }
+
+  @Output() emitCreacionReserva: EventEmitter<any>  = new EventEmitter();
 
   public async utilInitForm(): Promise<boolean>{
     return new Promise((resolve)=>{
@@ -115,6 +117,10 @@ export class FiltroReservaComponent implements OnInit {
     this.subs.add(this.reservaServices.crearReserva(this.IReserva).subscribe( resp => {
       console.log('crear reserva');
       console.log(resp);
+      if (resp.status === 200) {
+        this.emitCreacionReserva.emit("reserva");
+        this.limpiarFormulario();
+      }
       if(resp.status === 401) {
         this.sweetAlert.alertFracaso(resp.message);
       }
@@ -128,6 +134,10 @@ export class FiltroReservaComponent implements OnInit {
     UtilFiltros.valorInput('fechaReserva', reserva?.fecha_reserva, this.formulario);
     UtilFiltros.valorInput('horaReserva', reserva?.hora_reserva, this.formulario);
     UtilFiltros.valorInput('lugarReserva', reserva?.lugar_reserva, this.formulario);
+  }
+
+  limpiarFormulario() {
+    this.formulario.reset();
   }
 
 }

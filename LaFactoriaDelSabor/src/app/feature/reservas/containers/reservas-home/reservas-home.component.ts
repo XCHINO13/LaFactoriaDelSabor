@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IReserva } from 'src/app/core/data/IReserva';
+import { TablaReservasComponent } from '../../components/tabla-reservas/tabla-reservas.component';
 
 @Component({
   selector: 'app-reservas-home',
@@ -8,6 +9,8 @@ import { IReserva } from 'src/app/core/data/IReserva';
   styleUrls: ['./reservas-home.component.css']
 })
 export class ReservasHomeComponent implements OnInit {
+
+  @ViewChild(TablaReservasComponent) childComponent!: TablaReservasComponent;
 
   public titulo = 'Reserva';
   public usuario!: any;
@@ -25,6 +28,10 @@ export class ReservasHomeComponent implements OnInit {
 
   actualizarReserva(reserva: IReserva) {
     this.reserva = reserva;
+  }
+
+  consultarReservaEmit() { 
+    this.childComponent.consultarReservas();
   }
 
 }

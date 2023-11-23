@@ -1,0 +1,14 @@
+.background {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("src\assets\img\fondoComida.jpg") no-repeat;
+    background-size: cover;
+    height: 100vh;
+    min-height: 60rem;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.container_body {
+    padding-top: 2rem;
+    width: 45%;
+}
